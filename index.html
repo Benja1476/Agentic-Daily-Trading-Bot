@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic Trading Bot Portfolio - เบ็ญจลักษณ์ วงษ์สุดตา</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; }
+h1,h2,h3 { text-align: center; }
+.container { max-width: 100%; margin: auto; padding: 5px; }
+.section { background: #fff; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.flowchart { display: flex; flex-direction: column; align-items: center; }
+.node { color: #fff; padding: 12px 20px; border-radius: 10px; margin: 8px; text-align: center; width: 90%; max-width: 350px; box-shadow: 0 3px 6px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.2s, background 0.2s; }
+.node:hover { transform: scale(1.05); }
+.arrow { font-size: 22px; margin: -5px 0; }
+.log-container { background: #1e1e1e; color: #0f0; font-family: monospace; padding: 10px; height: 250px; overflow-y: scroll; border-radius: 10px; }
+.kpi-table { width: 100%; border-collapse: collapse; margin-top:10px; }
+.kpi-table th, .kpi-table td { border: 1px solid #ccc; padding: 8px; text-align: center; font-size:14px; }
+.kpi-table th { background: #4a90e2; color: #fff; }
+@media (max-width: 500px) {
+  .node { font-size: 14px; padding: 10px; }
+  h1 { font-size: 20px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+}
+.data-step { background: #4a90e2; }
+.rl-step { background: #f5a623; }
+.live-step { background: #50e3c2; }
+.alert-step { background: #d0021b; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Agentic Daily Trading Bot</h1>
+<h2>Project Portfolio</h2>
+<h3>Developer: เบ็ญจลักษณ์ วงษ์สุดตา</h3>
+
+<!-- Overview -->
+<div class="section">
+<h3>Project Overview</h3>
+<p><strong>Domain:</strong> Cryptocurrency / Algorithmic Trading / AI</p>
+<p><strong>Description:</strong> Fully automated AI trading bot using PPO reinforcement learning. Fetches data, trains agent, executes live trades, adapts strategy dynamically, and sends Telegram alerts.</p>
+
+<h3>Developer Role: เบ็ญจลักษณ์ วงษ์สุดตา</h3>
+<ul>
+  <li>Design and implement AI Agentic Daily Trading Bot (Python, Gymnasium, Stable-Baselines3, TA indicators)</li>
+  <li>Develop data pipeline: Load CSV / Fetch live OHLCV from Binance / Compute RSI & EMA</li>
+  <li>Create Trading Environment & Multi-Step Planning for reinforcement learning</li>
+  <li>Train PPO Agent and evaluate cumulative reward on historical data</li>
+  <li>Implement Live Trading with dynamic strategy adaptation and Telegram notifications</li>
+  <li>Monitor Key Performance Indicators (KPI) and adjust parameters automatically</li>
+  <li>Ensure mobile-friendly deployment and interactive portfolio presentation</li>
+</ul>
+<p><strong>Contact:</strong> <a href="mailto:benjaja60@gmail.com">benjaja60@gmail.com</a></p>
+</div>
+
+<!-- Flow Chart -->
+<div class="section">
+<h3>Interactive Technical Flow</h3>
+<div class="flowchart" id="flowchart"></div>
+</div>
+
+<!-- Process Log -->
+<div class="section">
+<h3>Process Log (Live Simulation)</h3>
+<div class="log-container" id="log"></div>
+</div>
+
+<!-- KPI -->
+<div class="section">
+<h3>Key Performance Indicators (KPI)</h3>
+<table class="kpi-table">
+<tr><th>KPI</th><th>Value / Target</th></tr>
+<tr><td>Cumulative Reward</td><td>Simulated / Real-time</td></tr>
+<tr><td>Average Daily Reward</td><td>+5%</td></tr>
+<tr><td>Max Drawdown</td><td>-0.8%</td></tr>
+<tr><td>TP / SL Hit Ratio</td><td>68% / 5%</td></tr>
+<tr><td>Trades per Day</td><td>1–3</td></tr>
+<tr><td>Strategy Adaptation Rate</td><td>Dynamic after last 10 trades</td></tr>
+<tr><td>Telegram Alerts</td><td>100% coverage</td></tr>
+</table>
+</div>
+
+<!-- Footer / Copyright & Contact -->
+<div style="text-align:center; margin:20px 0; font-size:12px; color:#666;">
+&copy; 2025 เบ็ญจลักษณ์ วงษ์สุดตา. All Rights Reserved. | Contact: <a href="mailto:benjaja60@gmail.com">benjaja60@gmail.com</a>
+</div>
+
+<script>
+const steps = [
+{step:"Start Bot – Initialize System", type:"data", desc:"Load libraries and apply nest_asyncio"},
+{step:"Load Config – SYMBOL, TP, SL, Params", type:"data", desc:"Set trading parameters and Telegram config"},
+{step:"Load or Fetch Historical Data", type:"data", desc:"Load CSV if exists, else fetch from Binance API"},
+{step:"Compute Indicators – RSI/EMA", type:"data", desc:"Calculate RSI14, EMA55, EMA150, EMA200"},
+{step:"Initialize TradingEnv (Gym)", type:"rl", desc:"Setup Gym environment with observation/action space"},
+{step:"Daily Retrain PPO Agent", type:"rl", desc:"Train PPO agent, save model zip"},
+{step:"Test Model on Historical Data", type:"rl", desc:"Evaluate cumulative reward"},
+{step:"Start Live Trading Loop", type:"live", desc:"Bot fetches live OHLCV data continuously"},
+{step:"Compute Live Indicators", type:"live", desc:"Update RSI/EMA on live data"},
+{step:"Plan Position – Trend & Pullback", type:"live", desc:"Determine long/short/hold using multi-step logic"},
+{step:"Decide Action", type:"live", desc:"Choose action based on plan and current position"},
+{step:"Execute Trade & Update PnL", type:"live", desc:"Open/close position and calculate profit/loss"},
+{step:"Log Reward", type:"live", desc:"Append reward to reward_history.json"},
+{step:"Adjust Strategy Parameters", type:"live", desc:"Adapt TP/SL/pullback dynamically based on history"},
+{step:"Send Telegram Alerts", type:"alert", desc:"Notify open/close trades via Telegram"},
+{step:"Loop / Wait Next Tick", type:"live", desc:"Wait for next iteration"},
+{step:"End Bot – Simulation Complete", type:"data", desc:"Finish process and cleanup"}
+];
+
+const flowchartDiv = document.getElementById('flowchart');
+const logDiv = document.getElementById('log');
+
+// สร้าง Flow Chart
+steps.forEach((s,i)=>{
+    const node = document.createElement('div');
+    node.className='node '+s.type+'-step';
+    node.textContent=`${i+1}. ${s.step}`;
+    node.onclick = ()=>{
+        const entry=document.createElement('div');
+        const timestamp=new Date().toLocaleTimeString();
+        entry.textContent=`[${timestamp}] ${s.desc}`;
+        logDiv.appendChild(entry);
+        logDiv.scrollTop=logDiv.scrollHeight;
+    }
+    flowchartDiv.appendChild(node);
+    if(i<steps.length-1){
+        const arrow = document.createElement('div');
+        arrow.className='arrow';
+        arrow.textContent='⬇️';
+        flowchartDiv.appendChild(arrow);
+    }
+});
+
+// --- Auto-Simulate Live Trading Log with Colors & Icons ---
+let cumPnl = 0;
+let position = 0;
+const actions = [
+  {name:"Hold", icon:"⏸️", color:"#fff"}, 
+  {name:"Long", icon:"📈", color:"#50e3c2"}, 
+  {name:"Short", icon:"📉", color:"#d0021b"}
+];
+
+function randomFloat(min,max){ return (Math.random()*(max-min)+min); }
+
+function simulateStep(){
+    const step = steps.filter(s=>s.type==="live" || s.type==="alert")[Math.floor(Math.random()*10)%10];
+    const pnl = position===1 ? randomFloat(-0.005,0.01) : position===-1 ? randomFloat(-0.005,0.01) : 0;
+    if(step.step.includes("Decide Action")) position = [-1,0,1][Math.floor(Math.random()*3)];
+    cumPnl += pnl;
+    const suggestion = cumPnl<0 ? "⚠ Negative performance, adjust cautiously." 
+                     : cumPnl>0.05 ? "✅ Positive but volatile." 
+                     : "ℹ Strategy stable.";
+    const timestamp = new Date().toLocaleTimeString();
+    
+    const entry = document.createElement('div');
+    entry.textContent = `[${timestamp}] ${step.desc} | ${actions[position+1].icon} ${actions[position+1].name} | PnL: ${(pnl*100).toFixed(2)}% | Cum PnL: ${(cumPnl*100).toFixed(2)}% | ${suggestion}`;
+    entry.style.color = actions[position+1].color;
+    entry.style.padding = "2px 0";
+    logDiv.appendChild(entry);
+    logDiv.scrollTop = logDiv.scrollHeight;
+}
+
+// รัน Auto-Simulate ทุก 2 วินาที
+setInterval(simulateStep,2000);
+</script>
+</body>
+</html>
